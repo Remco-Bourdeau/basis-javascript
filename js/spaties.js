@@ -2,6 +2,7 @@
 let aantalSpaties;
 document.getElementById("text").oninput = function() {
     const text = this.value;
+    document.getElementById("toonSpaties").disabled = this.value === "";
     aantalSpaties = text.split(" ").length - 1;
 }
 document.getElementById("toonSpaties").onclick = function() {
