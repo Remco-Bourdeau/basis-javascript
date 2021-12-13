@@ -1,0 +1,93 @@
+body {
+    font-family: Arial;
+}
+
+label {
+    cursor: pointer;
+    display: block;
+}
+
+input, select {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+}
+
+input[type=checkbox], input[type=radio] {
+    display: inline;
+}
+
+fieldset {
+    margin-bottom: 1em;
+    width: 20em;
+}
+
+.uitleg {
+    font-size: 70%
+}
+
+.feedback, .fout {
+    color: white;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+}
+
+.feedback {
+    background-color: navy;
+}
+
+.fout {
+    background-color: red;
+    margin-top:0.5em;
+}
+
+.feedback:empty, .fout:empty {
+    display: none;
+}
+
+.zachteAchtergrond {
+    background-color: blanchedalmond;
+}
+
+.dunneKader {
+    border-color: brown;
+    border-style: solid;
+    border-width: 0.02em;
+    padding: 0.2em;
+}
+
+.opvallend {
+    background-color: greenyellow;
+}
+
+table {
+    margin-top: 1em;
+}
+
+.container {
+    margin-top: 1em;
+}
+
+.links, .midden, .rechts {
+    float: left;
+}
+
+.midden, .rechts {
+    margin-left: 1em;
+}
+
+.midden button {
+    display: block;
+    margin-bottom: 0.4em;
+}
+
+.burgerSelect {
+    width: 20em;
+}
+
+dd {
+    font-weight: bold;
+    margin-left: 0;
+    margin-bottom: 0.5em;
+}

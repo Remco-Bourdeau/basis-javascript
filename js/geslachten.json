@@ -1,0 +1,62 @@
+[
+    {
+        "voornaam": "Noah",
+        "familienaam": "Smith",
+        "geslacht": "man",
+        "foto": "man1.jpg"
+    },
+    {
+        "voornaam": "Emma",
+        "familienaam": "Johnson",
+        "geslacht": "vrouw",
+        "foto": "vrouw1.jpg"
+    },
+    {
+        "voornaam": "Sophia",
+        "familienaam": "Wilson",
+        "geslacht": "vrouw",
+        "foto": "vrouw3.jpg"
+    },
+    {
+        "voornaam": "Mason",
+        "familienaam": "Jones",
+        "geslacht": "man",
+        "foto": "man3.jpg"
+    },
+    {
+        "voornaam": "William",
+        "familienaam": "Davis",
+        "geslacht": "man",
+        "foto": "man5.jpg"
+    },
+    {
+        "voornaam": "Liam",
+        "familienaam": "Williams",
+        "geslacht": "man",
+        "foto": "man2.jpg"
+    },
+    {
+        "voornaam": "Olivia",
+        "familienaam": "Miller",
+        "geslacht": "vrouw",
+        "foto": "vrouw2.jpg"
+    },
+    {
+        "voornaam": "Jacob",
+        "familienaam": "Brown",
+        "geslacht": "man",
+        "foto": "man4.jpg"
+    },
+    {
+        "voornaam": "Ava",
+        "familienaam": "Moore",
+        "geslacht": "vrouw",
+        "foto": "vrouw4.jpg"
+    },
+    {
+        "voornaam": "Isabella",
+        "familienaam": "Taylor",
+        "geslacht": "vrouw",
+        "foto": "vrouw5.jpg"
+    }
+]
