@@ -22,3 +22,26 @@ for (const hyperlink of standbeeldenUl.getElementsByTagName("a"))
 for (const hyperlink of document.querySelectorAll("#standbeelden a")){
     hyperlink.onclick = toonStandbeeld;
 }
+const eersteLi = document.querySelector("li");
+console.log(eersteLi.parentElement.id);
+for (const sibling of eersteLi.parentElement.children){
+    if (sibling !== eersteLi){
+        console.log(sibling);
+    }
+}
+const standbeeldenLijst = document.getElementById("standbeelden");
+for (const childElement of standbeeldenLijst.children){
+    console.log(childElement);
+}
+const tweedeLi = document.querySelector("li:nth-child(2)");
+let volgendeSibling = tweedeLi.nextElementSibling;
+while (volgendeSibling !== null){
+    console.log(volgendeSibling);
+    volgendeSibling = volgendeSibling.nextElementSibling;
+}
+const voorlaatsteLi = document.querySelector("li:nth-last-child(2)");
+let vorigeSibling = voorlaatsteLi.previousElementSibling;
+while (vorigeSibling !== null){
+    console.log(vorigeSibling);
+    vorigeSibling = vorigeSibling.previousElementSibling;
+}
