@@ -1,13 +1,15 @@
 "use strict";
-for (const hyperlink of document.querySelectorAll("a[data-verbergen]")){
-    hyperlink.onclick = function() {
-        const afbeeldingen = document.getElementById(this.dataset.verbergen);
-        if (this.innerText === "Zonder afbeeldingen"){
-            afbeeldingen.hidden = true;
-            this.innerText = "Met afbeeldingen";
-        } else {
-            afbeeldingen.hidden = false;
-            this.innerText = "Zonder afbeeldingen";
-        }
+document.getElementById("zonderOfMetAfbeeldingen").onclick = function () {
+    if (this.innerText === "Zonder afbeeldingen") {
+        wijzigHiddenNaar(true);
+        this.innerText = "Met afbeeldingen";
+    } else {
+        wijzigHiddenNaar(false);
+        this.innerText = "Zonder afbeeldingen";
+    }
+}
+function wijzigHiddenNaar (hidden){
+    for (const img of document.querySelectorAll("#standbeelden img")){
+        img.hidden = hidden;
     }
 }
