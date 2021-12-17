@@ -18,8 +18,6 @@ function zoekListItemMetNaam(naam) {
     for (const element of document.querySelectorAll("#voornamen li")) {
         if (element.dataset.naam === naam) {
             return element;
-        } else {
-            return null;
         }
     } 
     return null;
