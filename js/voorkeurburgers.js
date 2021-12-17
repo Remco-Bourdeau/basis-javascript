@@ -5,6 +5,7 @@ document.getElementById("rechts").onchange = eenNaarLinks;
 document.getElementById("allesNaarLinks").onclick = allesNaarLinks;
 document.getElementById("allesNaarRechts").onclick = allesNaarRechts;
 document.onchange = knoppenAllesOverzetten;
+
 function eenNaarRechts() {
     document.getElementById("eenNaarRechts").disabled = false;
     const gekozen = links.options[links.selectedIndex];
