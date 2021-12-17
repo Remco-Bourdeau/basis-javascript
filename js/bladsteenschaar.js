@@ -2,7 +2,7 @@
 let keuzePersoon = 0;
 
 for (const keuze of document.querySelectorAll("#keuze img")){
-    keuze.onclick = function () {
+    keuze.onclick = function () {/*
         switch (keuze.id){
             case "blad":
                 keuzePersoon =  1;
@@ -12,10 +12,10 @@ for (const keuze of document.querySelectorAll("#keuze img")){
                 break;
             case "schaar":
                 keuzePersoon =  3;
-        }
-        console.log("Keuze gebruiker: ", keuzePersoon);
-        console.log("Keuze computer: ", keuzeComputer);
-        winnaar(keuzePersoon, keuzeComputer);
+        }*/
+        //console.log("Keuze gebruiker: ", keuzePersoon);
+        //console.log("Keuze computer: ", keuzeComputer());
+        winnaar(Number(keuze.dataset.keuze), keuzeComputer());
     }
 }
 
@@ -27,7 +27,7 @@ function winnaar (keuzePersoon, keuzeComputer) {
         winnaar = "Gelijkspel";
     } else if (keuzePersoon === 1 && keuzeComputer === 2) {
         winnaar = "Gebruiker";
-    } else if (keuzePersoon === 2 && keuzeComputer === 1) {
+    } else if (keuzePersoon === 2 && keuzeComputer === 3) {
         winnaar = "Gebruiker";
     } else if (keuzePersoon === 3 && keuzeComputer === 1) {
         winnaar = "Gebruiker";
@@ -35,7 +35,7 @@ function winnaar (keuzePersoon, keuzeComputer) {
         winnaar = "Computer";
     }
     document.getElementById("uitkomst").innerText = winnaar;
-    return console.log(winnaar);
+    //console.log(winnaar);
 }
 
 function keuzeComputer() {
