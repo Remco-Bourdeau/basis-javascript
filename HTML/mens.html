@@ -2,23 +2,23 @@
 <html lang="nl">
 
 <head>
-    <script src="mens.js" defer></script>
+    <script src="../js/mens.js" defer></script>
     <title>Mens</title>
-    <link rel="icon" href="javascript.ico" type="image/x-icon">
-    <link rel="stylesheet" href="default.css">
+    <link rel="icon" href="../img/javascript.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/default.css">
 </head>
 
 <body>
     <label>Voornaam:
         <span id="voornaamFout" hidden class="fout">Verplicht in te vullen.</span>
-        <input id="voornaam" autofocus>
+        <input id="voornaam" autofocus required>
     </label>
     <label>Aantal kinderen:
         <span id="kinderenFout" hidden class="fout">Minstens nul.</span>
-        <input id="kinderen"></label>
+        <input id="kinderen" required type="number" min="0"></label>
     <label>Geslacht:
         <span id="geslachtFout" hidden class="fout">Verplicht te kiezen.</span>
-        <select id="geslacht">
+        <select id="geslacht" required>
             <option value="">(Maak een keuze)</option>
             <option value="M">Man</option>
             <option value="V">Vrouw</option>
