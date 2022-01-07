@@ -1,32 +1,27 @@
 "use strict";
-// ul id beschikbaar
-//mandje span id aantal
-//mandje ul id mandje
+const mandjeUl = document.getElementById("mandje");
+const aantal = document.getElementById("aantal");
 let mandje = JSON.parse(localStorage.getItem("mandje"));
-let aantal = JSON.parse(localStorage.getItem("aantal"));
-const ul = document.getElementById("mandje");
+
 if (mandje === null) {
     mandje = [];
-}
-for (const optie of document.querySelectorAll("#beschikbaar li a")) {
-    optie.onclick = function () {
-        let keuze = optie.value;
-        aantal++;
-        document.getElementById("aantal").innerText = aantal;
-        mandje.push(keuze);
+} else {
+    for(const burger of mandje) { //wat er al in zat tonen
         const li = document.createElement("li");
-        li.innerText = keuze;
-        ul.appendChild(li);
+        li.innerText = burger;
+        mandjeUl.appendChild(li);
+    }
+    aantal.innerText = mandje.length;
+}
+//nieuwe elementen toevoegen
+for (const hyperlink of document.querySelectorAll("#beschikbaar a")) {
+    hyperlink.onclick = function () {
+        const burger = this.innerText;
+        mandje.push(burger);
+        localStorage.setItem("mandje", JSON.stringify(mandje));
+        const li = document.createElement("li");
+        li.innerText = burger;
+        mandjeUl.appendChild(li);
+        aantal.innerText = Number(aantal.innerText) + 1;
     }
 }
-
-localStorage.setItem("aantal", JSON.stringify(aantal));
-localStorage.setItem("mandje", JSON.stringify(mandje));
-/*
-const ul = document.getElementById("mandje");
-for (const burger of mandje) {
-    const li = document.createElement("li");
-    li.innerText = burger;
-    ul.appendChild(li);
-}*/
-//localStorage.removeItem("mandje");
