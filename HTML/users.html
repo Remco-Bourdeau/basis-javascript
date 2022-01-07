@@ -2,17 +2,16 @@
 <html lang="nl">
 
 <head>
-    <script src="../js/user.js" defer></script>
+    <script src="../js/users.js" defer></script>
     <title>User</title>
     <link rel="icon" href="../img/javascript.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/efault.css">
 </head>
 
 <body>
-    <label>Nummer:</label>
-    <input id="zoekNummer" autofocus required type="number" min="1">
-    <button id="zoeken">Zoeken</button>
-    <dl id="user">
+    <ul id="users">
+    </ul>
+    <dl id="user" hidden>
         <dt>Nummer:</dt>
         <dd id="nummer"></dd>
         <dt>Voornaam:</dt>
@@ -22,10 +21,9 @@
         <dt>Email adres:</dt>
         <dd id="emailAdres"></dd>
         <dt>Avatar:</dt>
-        <dd><img id="avatar" src="leeg.png" alt="avatar"></dd>
+        <dd><img id="avatar" src="leeg.png" alt="leeg"></dd>
     </dl>
     <div id="nietGevonden" hidden class="fout">Niet gevonden.</div>
-    <div id="nummerFout" hidden class="fout">Verkeerd nummer.</div>
 </body>
 
 </html>
