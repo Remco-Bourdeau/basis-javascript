@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <script src="../js/saus.js" defer></script>
+    <title>Saus</title>
+    <link rel="icon" href="../img/javascript.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<body>
+    <div id="nietGevonden" hidden class="fout">Niet gevonden.</div>
+    <div id="verloren" hidden class="fout">Je hebt verloren.
+        De saus was <span id="verlorenSaus"></span>.</div>
+    <div id="gewonnen" hidden class="feedback">Je hebt gewonnen.
+        De saus was <span id="gewonnenSaus"></span>.</div>
+    <div>Te raden saus: <span id="puntjes"></span></div>
+    <label>Letter: <input id="letter" autofocus size="1" maxlength="1"></label>
+    <div><button id="raden">Raden</button></div>
+    <img id="foutePogingen" src="../img/0.png" alt="beurten">
+</body>
+
+</html>
