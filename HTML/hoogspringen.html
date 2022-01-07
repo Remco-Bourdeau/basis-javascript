@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+    <script src="../js/hoogspringen.js" defer></script>
+    <title>Hoogspringen</title>
+    <link rel="icon" href="../img/javascript.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<body>
+<label>Naam: 
+    <input id="naam" autofocus required type="text">
+</label>
+<div id="naamFout" hidden class="feedback">Gelieve een naam in te vullen.</div>
+<label>Hoogte (cm)
+    <input id="hoogte" required type="number" min="0">
+</label>
+<div id="hoogteFout" hidden class="feedback">Gelieve een hoogte groter of gelijk aan 0 in te vullen.</div>
+<button id="toevoegen">Toevoegen</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Hoogte</th>
+            <th>Winnaar</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+</body>
