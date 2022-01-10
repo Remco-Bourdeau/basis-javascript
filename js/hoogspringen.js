@@ -38,13 +38,13 @@ function controleerInput (naam, hoogte) {
 function winnaar () {
     for (const element of document.querySelector("tbody").rows){
         const hoogte = Number(element.cells[1].innerText);
-        
+        /*
         if (hoogte === maxHoogte){
             element.cells[2].innerText = "*";
         } else {
             element.cells[2].innerText = "";
-        }
-        //element.cells[2].innerText = hoogte === maxHoogte ? "*" : "";
+        }*/
+        element.cells[2].innerText = hoogte === maxHoogte ? "*" : "";
     }
     
 }
