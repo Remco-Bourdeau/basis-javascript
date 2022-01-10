@@ -37,17 +37,17 @@ function maakTabel(personen) {
         const fotoImg = document.createElement("img");
         fotoImg.src = `../img/${persoon.foto}`;
         foto.appendChild(fotoImg);
-        
+
     }
 }
 
-function controleerGeslacht(geslacht){
+function controleerGeslacht(geslacht) {
     for (const row of document.querySelector("tbody").rows) {
-        if (row.dataset.geslacht === geslacht){
+        if (row.dataset.geslacht === geslacht) {
             row.hidden = false;
         } else {
             row.hidden = true;
-            if (geslacht === "allen"){
+            if (geslacht === "allen") {
                 row.hidden = false;
             }
         }
