@@ -18,7 +18,7 @@
     -->
     <label>Waarop wil je filteren</label>
     <select id="keuzes" autofocus required>
-        <option id="maakUwKeuze" selected hidden>Maak uw keuze</option>
+        <option value="" id="maakUwKeuze" selected hidden>Maak uw keuze</option>
         <!--
         <option value="man" id="man">Man</option>
         <option value="vrouw" id="vrouw">Vrouw</option>
@@ -26,6 +26,7 @@
         -->
     </select>
     <button id="filter">Filter</button>
+    <span id="fout" class="fout" hidden> Gelieve een filteroptie te kiezen.</span>
 <table>
     <thead>
         <tr>

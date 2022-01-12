@@ -28,10 +28,14 @@ async function leesGeslachten() {
         document.getElementById("nietGevonden").hidden = true;
         maakTabel(personen);
         document.getElementById("filter").onclick = function () {
-            const gekozenGeslacht = opties.options[opties.selectedIndex].value;
+            if (!document.getElementById("keuzes").checkValidity()) {
+                document.getElementById("fout").hidden = false;
+            } else {
+                document.getElementById("fout").hidden = true;
+                const gekozenGeslacht = opties.options[opties.selectedIndex].value;
                 controleerGeslacht(gekozenGeslacht);
             }
-        
+        }
     } else {
         document.getElementById("nietGevonden").hidden = false;
     }
