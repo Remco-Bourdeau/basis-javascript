@@ -35,6 +35,13 @@ async function leesGeslachten() {
                 const gekozenGeslacht = opties.options[opties.selectedIndex].value;
                 controleerGeslacht(gekozenGeslacht);
                 toonAantalPersonen();
+                for (const knop of document.querySelectorAll("button img")) {
+                    knop.onclick = function () {
+                        const row = this.parentElement.parentElement.parentElement;
+                        row.remove();
+                        toonAantalPersonen();
+                    }
+                }
             }
         }
     } else {
@@ -60,6 +67,12 @@ function maakTabel(personen) {
         const fotoImg = document.createElement("img");
         fotoImg.src = `../img/${persoon.foto}`;
         foto.appendChild(fotoImg);
+        const verwijderen = tr.insertCell();
+        const verwijderenButton = document.createElement("button");
+        const verwijderenImg = document.createElement("img");
+        verwijderenImg.src = "../img/delete.ico";
+        verwijderen.appendChild(verwijderenButton);
+        verwijderenButton.appendChild(verwijderenImg);
     }
 }
 
@@ -80,16 +93,12 @@ function controleerGeslacht(geslacht) {
 }
 
 function toonAantalPersonen() {
-    const footer = document.querySelector("tfoot");
-    while (footer.lastChild !== null){
-        footer.lastChild.remove();
-    }
-    const tr = footer.insertRow();
+    const footer = document.getElementById("aantalPersonen");
     let index = 0;
     for (const row of document.querySelector("tbody").rows){
         if (! row.hidden){
             index++;
         }
     }
-    tr.innerText = `Er worden ${index} personen weergegeven.`
+    footer.innerText = `Er worden ${index} personen weergegeven.`
 }
