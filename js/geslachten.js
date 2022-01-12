@@ -2,10 +2,29 @@
 leesGeslachten();
 const opties = document.getElementById("keuzes");
 
+async function leesOpties (){
+    const response = await fetch ("../js/geslachtenOpties.json");
+    if (response.ok){
+        const opties = await response.json();
+        document.getElementById("optiesNietGevonden").hidden = true;
+        for (const optie of opties){
+            const select = document.querySelector("select");
+            const option = document.createElement("option");
+            option.value = optie.geslacht;
+            option.innerText = optie.naam;
+            select.appendChild(option);
+        }
+    }
+    else {
+        document.getElementById("optiesNietGevonden").hidden = false;
+    }
+}
+
 async function leesGeslachten() {
     const response = await fetch("../js/geslachten.json");
     if (response.ok) {
         const personen = await response.json();
+        leesOpties();
         document.getElementById("nietGevonden").hidden = true;
         maakTabel(personen);
         document.getElementById("filter").onclick = function () {
@@ -53,8 +72,4 @@ function controleerGeslacht(geslacht) {
         
        //row.hidden = (geslacht !== "allen" && row.dataset.geslacht === geslacht);
     }
-}
-
-function getSelectedOption() {
-
 }
