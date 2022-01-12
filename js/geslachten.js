@@ -34,6 +34,7 @@ async function leesGeslachten() {
                 document.getElementById("fout").hidden = true;
                 const gekozenGeslacht = opties.options[opties.selectedIndex].value;
                 controleerGeslacht(gekozenGeslacht);
+                toonAantalPersonen();
             }
         }
     } else {
@@ -76,4 +77,19 @@ function controleerGeslacht(geslacht) {
         
        //row.hidden = (geslacht !== "allen" && row.dataset.geslacht === geslacht);
     }
+}
+
+function toonAantalPersonen() {
+    const footer = document.querySelector("tfoot");
+    while (footer.lastChild !== null){
+        footer.lastChild.remove();
+    }
+    const tr = footer.insertRow();
+    let index = 0;
+    for (const row of document.querySelector("tbody").rows){
+        if (! row.hidden){
+            index++;
+        }
+    }
+    tr.innerText = `Er worden ${index} personen weergegeven.`
 }
