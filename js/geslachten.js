@@ -1,6 +1,6 @@
 "use strict";
 leesGeslachten();
-const opties = document.querySelectorAll("#links a");
+const opties = document.getElementById("keuzes");
 
 async function leesGeslachten() {
     const response = await fetch("../js/geslachten.json");
@@ -8,12 +8,11 @@ async function leesGeslachten() {
         const personen = await response.json();
         document.getElementById("nietGevonden").hidden = true;
         maakTabel(personen);
-        for (const optie of opties) {
-            optie.onclick = function () {
-                const gekozenGeslacht = this.dataset.geslacht;
+        document.getElementById("filter").onclick = function () {
+            const gekozenGeslacht = opties.options[opties.selectedIndex].value;
                 controleerGeslacht(gekozenGeslacht);
             }
-        }
+        
     } else {
         document.getElementById("nietGevonden").hidden = false;
     }
@@ -37,12 +36,12 @@ function maakTabel(personen) {
         const fotoImg = document.createElement("img");
         fotoImg.src = `../img/${persoon.foto}`;
         foto.appendChild(fotoImg);
-
     }
 }
 
 function controleerGeslacht(geslacht) {
     for (const row of document.querySelector("tbody").rows) {
+        
         if (row.dataset.geslacht === geslacht) {
             row.hidden = false;
         } else {
@@ -51,5 +50,11 @@ function controleerGeslacht(geslacht) {
                 row.hidden = false;
             }
         }
+        
+       //row.hidden = (geslacht !== "allen" && row.dataset.geslacht === geslacht);
     }
+}
+
+function getSelectedOption() {
+
 }

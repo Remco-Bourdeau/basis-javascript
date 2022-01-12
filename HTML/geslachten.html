@@ -9,11 +9,21 @@
 </head>
 
 <body>
+    <!--
     <div id="links">
         <a href="#" id="mannen" data-geslacht="man">Mannen</a>
         <a href="#" id="vrouwen" data-geslacht="vrouw">Vrouwen</a>
         <a href="#" id="allen" data-geslacht="allen">Allen</a>
     </div>
+    -->
+    <label>Waarop wil je filteren</label>
+    <select id="keuzes" autofocus required>
+        <option id="maakUwKeuze" selected hidden>Maak uw keuze</option>
+        <option value="man" id="man">Man</option>
+        <option value="vrouw" id="vrouw">Vrouw</option>
+        <option value="allen" id="allen">Allen</option>
+    </select>
+    <button id="filter">Filter</button>
 <table>
     <thead>
         <tr>
