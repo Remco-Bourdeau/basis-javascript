@@ -1,4 +1,5 @@
 "use strict";
+leesOpties();
 leesGeslachten();
 const opties = document.getElementById("keuzes");
 
@@ -24,7 +25,7 @@ async function leesGeslachten() {
     const response = await fetch("../js/geslachten.json");
     if (response.ok) {
         const personen = await response.json();
-        leesOpties();
+        
         document.getElementById("nietGevonden").hidden = true;
         maakTabel(personen);
         document.getElementById("filter").onclick = function () {
@@ -35,15 +36,8 @@ async function leesGeslachten() {
                 const gekozenGeslacht = opties.options[opties.selectedIndex].value;
                 controleerGeslacht(gekozenGeslacht);
                 toonAantalPersonen();
-                for (const knop of document.querySelectorAll("button img")) {
-                    knop.onclick = function () {
-                        const row = this.parentElement.parentElement.parentElement;
-                        row.remove();
-                        toonAantalPersonen();
-                    }
                 }
             }
-        }
     } else {
         document.getElementById("nietGevonden").hidden = false;
     }
@@ -73,6 +67,10 @@ function maakTabel(personen) {
         verwijderenImg.src = "../img/delete.ico";
         verwijderen.appendChild(verwijderenButton);
         verwijderenButton.appendChild(verwijderenImg);
+        verwijderenButton.onclick = function () {
+                tr.remove();
+                toonAantalPersonen();
+            }
     }
 }
 
@@ -87,18 +85,17 @@ function controleerGeslacht(geslacht) {
                 row.hidden = false;
             }
         }
-        
        //row.hidden = (geslacht !== "allen" && row.dataset.geslacht === geslacht);
     }
 }
 
 function toonAantalPersonen() {
     const footer = document.getElementById("aantalPersonen");
-    let index = 0;
+    let aantalPersonen = 0;
     for (const row of document.querySelector("tbody").rows){
         if (! row.hidden){
-            index++;
+            aantalPersonen++;
         }
     }
-    footer.innerText = `Er worden ${index} personen weergegeven.`
+    footer.innerText = `Er worden ${aantalPersonen} personen weergegeven.`
 }
