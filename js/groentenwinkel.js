@@ -2,6 +2,15 @@
 maakFooter();
 leesGroenten();
 const opties = document.getElementById("groente");
+document.getElementById("toevoegen").onclick = function () {
+    if (valideren()) {
+        const gekozenGroente = opties.options[opties.selectedIndex];
+        const aantalGroente = document.getElementById("aantal").value;
+        if (!isGroenteAlAanwezig(gekozenGroente)) {
+            toevoegenAanMandje(gekozenGroente, aantalGroente);
+        }
+    }
+}
 
 async function leesGroenten() {
     const response = await fetch("../js/groenten.json");
@@ -9,15 +18,7 @@ async function leesGroenten() {
         const groenten = await response.json();
         document.getElementById("nietGevonden").hidden = true;
         maakKeuzeLijst(groenten);
-        document.getElementById("toevoegen").onclick = function () {
-            if (valideren()) {
-                const gekozenGroente = opties.options[opties.selectedIndex];
-                const aantalGroente = document.getElementById("aantal").value;
-                if (!isGroenteAlAanwezig(gekozenGroente)) {
-                    toevoegenAanMandje(gekozenGroente, aantalGroente);
-                }
-            }
-        }
+        
     } else {
         document.getElementById("nietGevonden").hidden = false;
     }
@@ -44,7 +45,7 @@ function maakFooter(){
     let legeCell = tr.insertCell();
     legeCell = tr.insertCell();
     const totaalTeBetalen = tr.insertCell();
-    totaalTeBetalen.setAttribute("id", "totaal");
+    totaalTeBetalen.id = "totaal";
     legeCell = tr.insertCell();
 }
 
@@ -84,23 +85,18 @@ function toonTotaal(){
 }
 
 function valideren() {
+    let allesOK = true;
     document.getElementById("geenGroenteGekozen").hidden = true;
     document.getElementById("geenAantalGekozen").hidden = true;
-    if (!document.getElementById("groente").checkValidity() && !document.getElementById("aantal").checkValidity()) {
+    if (!document.getElementById("groente").checkValidity()) {
         document.getElementById("geenGroenteGekozen").hidden = false;
-        document.getElementById("geenAantalGekozen").hidden = false;
-        return false;
-    } else if (!document.getElementById("groente").checkValidity()) {
-        document.getElementById("geenGroenteGekozen").hidden = false;
-        return false;
-    } else if (!document.getElementById("aantal").checkValidity()) {
-        document.getElementById("geenAantalGekozen").hidden = false;
-        return false;
-    } else {
-        document.getElementById("geenGroenteGekozen").hidden = true;
-        document.getElementById("geenAantalGekozen").hidden = true;
-        return true;
+        allesOK = false;
     }
+    if (!document.getElementById("aantal").checkValidity()) {
+        document.getElementById("geenAantalGekozen").hidden = false;
+        allesOK = false;
+    }
+    return allesOK;
 }
 
 function isGroenteAlAanwezig(groente){
