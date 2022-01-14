@@ -1,0 +1,45 @@
+body {
+	font-family: Arial;
+}
+
+#banner {
+	width: 100%;
+}
+
+label {
+	cursor: pointer;
+	display: block;
+}
+
+input, select {
+	display: block;
+	font-size: 1.1em;
+	margin-bottom: 1em;
+	margin-top: 0.2em;
+}
+
+table {
+	margin-top: 2em;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: lemonchiffon;
+}
+
+tbody tr:nth-child(even) {
+	background-color: gainsboro;
+}
+
+thead tr, tfoot tr {
+	background-color: khaki;
+	font-weight: bold;
+}
+
+td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.fout{
+	background-color: red;
+	color: white;
+}
